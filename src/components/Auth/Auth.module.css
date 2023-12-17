@@ -192,10 +192,10 @@
   @media (min-width: 768px) {
     position: absolute;
     top: 0;
-    right: -500px;
+    right: -240px;
 
-    width: 1000px;
-    height: 500px;
+    width: 700px;
+    height: 470px;
 
     background-image: image-set(
       url("../../img/pic1_1x.png") 1x,
@@ -209,10 +209,10 @@
 .backgroundImageBottom {
   @media (min-width: 768px) {
     position: absolute;
-    right: -115px;
-    bottom: 0;
+    right: 20px;
+    bottom: -50px;
 
-    width: 1200px;
+    width: 1000px;
     height: 600px;
 
     background-image: image-set(
