@@ -1,6 +1,28 @@
+import { useState, ChangeEvent, FormEvent } from "react";
 import styles from "./Auth.module.css";
 
 export const Auth = () => {
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+
+  const onChangeEmail = (e: ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+  };
+
+  const onChangePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(e.target.value);
+  };
+
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    console.log("email", email);
+    console.log("password", password);
+
+    setEmail("");
+    setPassword("");
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.bgSilver} />
@@ -16,13 +38,22 @@ export const Auth = () => {
           quests and exciting challenges.
         </p>
 
-        <form className={styles.form}>
+        <form className={styles.form} onSubmit={handleSubmit}>
           <input
-            type="text"
+            type="email"
             placeholder="Choose your name to sign up or log in"
-            className={styles.login}
+            className={styles.email}
+            name="email"
+            value={email}
+            onChange={onChangeEmail}
           />
-          <input type="text" className={styles.password} />
+          <input
+            type="password"
+            className={styles.password}
+            name="password"
+            value={password}
+            onChange={onChangePassword}
+          />
           <button type="submit" className={styles.button}>
             go!
           </button>
