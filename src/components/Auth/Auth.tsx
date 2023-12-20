@@ -1,12 +1,12 @@
 import { useState, ChangeEvent, FormEvent } from "react";
 import styles from "./Auth.module.css";
-import { register } from "../../redux/auth/authOperations";
-import { useDispatch } from "react-redux";
+// import { register } from "../../redux/auth/authOperations";
+// import { useDispatch } from "react-redux";
 
 export const Auth = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const onChangeEmail = (e: ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
@@ -22,7 +22,7 @@ export const Auth = () => {
     console.log("email", email);
     console.log("password", password);
 
-    dispatch(register({ email, password }));
+    // dispatch(register({ email, password }));
 
     setEmail("");
     setPassword("");
