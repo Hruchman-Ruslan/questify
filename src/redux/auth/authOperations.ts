@@ -1,3 +1,4 @@
+// authOperations.ts
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
@@ -9,7 +10,7 @@ const setAuthHeader = (token: string) => {
 
 export const register = createAsyncThunk(
   "auth/register",
-  async (credentials, thunkAPI) => {
+  async (credentials: { email: string; password: string }, thunkAPI) => {
     try {
       const { data } = await axios.post("/auth/register", credentials);
       setAuthHeader(data.token);
