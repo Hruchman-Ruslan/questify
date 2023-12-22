@@ -16,17 +16,26 @@ export const Auth = () => {
     setPassword(e.target.value);
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     console.log("email", email);
     console.log("password", password);
 
-    dispatch(register({ email, password }));
-    dispatch(login({ email, password }));
+    try {
+      const registerResponse = await dispatch(register({ email, password }));
 
-    setEmail("");
-    setPassword("");
+      if (registerResponse.type === "auth/register/fulfilled") {
+        await dispatch(login({ email, password }));
+      } else {
+        await dispatch(login({ email, password }));
+      }
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setEmail("");
+      setPassword("");
+    }
   };
 
   return (
