@@ -1,6 +1,6 @@
 import { useState, ChangeEvent, FormEvent } from "react";
 import styles from "./Auth.module.css";
-import { register } from "../../redux/auth/authOperations";
+import { login, register } from "../../redux/auth/authOperations";
 import { useAppDispatch } from "../../redux/useHooks";
 
 export const Auth = () => {
@@ -23,6 +23,7 @@ export const Auth = () => {
     console.log("password", password);
 
     dispatch(register({ email, password }));
+    dispatch(login({ email, password }));
 
     setEmail("");
     setPassword("");
