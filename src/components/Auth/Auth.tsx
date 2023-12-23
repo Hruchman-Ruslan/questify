@@ -2,11 +2,13 @@ import { useState, ChangeEvent, FormEvent } from "react";
 import styles from "./Auth.module.css";
 import { login, register } from "../../redux/auth/authOperations";
 import { useAppDispatch } from "../../redux/useHooks";
+import { useNavigate } from "react-router-dom";
 
 export const Auth = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const dispatch = useAppDispatch();
+  const navigation = useNavigate();
 
   const onChangeEmail = (e: ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
@@ -27,8 +29,11 @@ export const Auth = () => {
 
       if (registerResponse.type === "auth/register/fulfilled") {
         await dispatch(login({ email, password }));
+
+        navigation("/main");
       } else {
         await dispatch(login({ email, password }));
+        navigation("/main");
       }
     } catch (error) {
       console.error(error);
