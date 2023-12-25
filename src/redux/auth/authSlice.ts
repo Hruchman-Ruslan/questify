@@ -7,6 +7,7 @@ export interface AuthState {
     password: string | null;
   };
   token: string | null;
+  isAuth: boolean;
 }
 
 interface AuthPayload {
@@ -20,6 +21,7 @@ interface AuthPayload {
 const initialState: AuthState = {
   user: { email: null, password: null },
   token: null,
+  isAuth: false,
 };
 
 const authSlice = createSlice({
@@ -32,12 +34,12 @@ const authSlice = createSlice({
         register.fulfilled,
         (state, action: PayloadAction<AuthPayload>) => {
           state.user = action.payload.user;
-          state.token = action.payload.token;
         }
       )
       .addCase(login.fulfilled, (state, action: PayloadAction<AuthPayload>) => {
         state.user = action.payload.user;
         state.token = action.payload.token;
+        state.isAuth = true;
       }),
 });
 
