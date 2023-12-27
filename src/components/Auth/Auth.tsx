@@ -1,14 +1,13 @@
 import { useState, ChangeEvent, FormEvent } from "react";
 import styles from "./Auth.module.css";
 import { login, register } from "../../redux/auth/authOperations";
-import { useAppDispatch } from "../../redux/useHooks";
-import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../redux/auth/useAuth";
 
 export const Auth = () => {
+  const { dispatch, navigation } = useAuth();
+
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const dispatch = useAppDispatch();
-  const navigation = useNavigate();
 
   const onChangeEmail = (e: ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);

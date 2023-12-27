@@ -2,8 +2,12 @@ import { FC } from "react";
 
 import styles from "../Header/Header.module.css";
 import { Icon } from "../Icon/Icon";
+import { useAuth } from "../../redux/auth/useAuth";
+import { logout } from "../../redux/auth/authOperations";
 
 export const Header: FC = () => {
+  const { dispatch } = useAuth();
+
   return (
     <header>
       <div className={styles.container}>
@@ -21,7 +25,7 @@ export const Header: FC = () => {
               <Icon idIcon="icon-challenge" width={40} height={40} />
             </li>
             <li>
-              <Icon idIcon="icon-logout" />
+              <Icon idIcon="icon-logout" onClick={() => dispatch(logout())} />
             </li>
           </ul>
         </div>
