@@ -2,7 +2,7 @@ import { FC } from "react";
 
 import styles from "./Icon.module.css";
 
-import sprite from "../../img/icons.svg";
+import sprite from "/src/img/icons.svg";
 
 interface IconProps {
   idIcon: string;
