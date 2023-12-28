@@ -2,25 +2,23 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { login, logout, register } from "./authOperations";
 
 export interface AuthState {
-  user: {
+  userData: {
     email: string | null;
     password: string | null;
   };
-  token: string | null;
   isAuth: boolean;
 }
 
 interface AuthPayload {
-  user: {
+  userData: {
     email: string;
     password: string;
   };
-  token: string;
+  isAuth: boolean;
 }
 
 const initialState: AuthState = {
-  user: { email: null, password: null },
-  token: null,
+  userData: { email: null, password: null },
   isAuth: false,
 };
 
@@ -33,17 +31,15 @@ const authSlice = createSlice({
       .addCase(
         register.fulfilled,
         (state, action: PayloadAction<AuthPayload>) => {
-          state.user = action.payload.user;
+          state.userData = action.payload.userData;
         }
       )
       .addCase(login.fulfilled, (state, action: PayloadAction<AuthPayload>) => {
-        state.user = action.payload.user;
-        state.token = action.payload.token;
+        state.userData = action.payload.userData;
         state.isAuth = true;
       })
       .addCase(logout.fulfilled, (state) => {
-        state.user = { email: null, password: null };
-        state.token = null;
+        state.userData = { email: null, password: null };
         state.isAuth = false;
       }),
 });
