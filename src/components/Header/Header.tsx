@@ -24,7 +24,7 @@ export const Header: FC = () => {
         <div className={styles.iconWrapper}>
           <ul className={styles.iconList}>
             <li>
-              <Icon idIcon="challenge" width={40} height={40} />
+              <Icon idIcon="challenge" width={20} height={20} />
             </li>
             <li>
               <Icon
