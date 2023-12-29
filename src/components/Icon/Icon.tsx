@@ -2,7 +2,7 @@ import { FC } from "react";
 
 import styles from "./Icon.module.css";
 
-import sprite from "/src/img/icons.svg";
+import sprite from "../../img/icons.svg";
 
 interface IconProps {
   idIcon: string;
@@ -24,7 +24,7 @@ export const Icon: FC<IconProps> = ({
       height={height}
       onClick={onClick}
     >
-      <use href={`${sprite}#${idIcon}`}></use>
+      <use xlinkHref={`${sprite}#icon-${idIcon}`}></use>
     </svg>
   );
 };
