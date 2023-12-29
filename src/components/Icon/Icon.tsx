@@ -24,7 +24,7 @@ export const Icon: FC<IconProps> = ({
       height={height}
       onClick={onClick}
     >
-      <use xlinkHref={`${sprite}#${idIcon}`}></use>
+      <use href={`${sprite}#${idIcon}`}></use>
     </svg>
   );
 };
