@@ -8,7 +8,7 @@ import { logout } from "../../redux/auth/authOperations";
 import styles from "../Header/Header.module.css";
 
 export const Header: FC = () => {
-  const { dispatch, navigation } = useAuth();
+  const { dispatch, navigation, user } = useAuth();
 
   return (
     <header>
@@ -19,7 +19,16 @@ export const Header: FC = () => {
           </Link>
         </div>
         <div className={styles.textWrapper}>
-          <p className={styles.text}>John’s Quest Log</p>
+          <ul className={styles.listWrapper}>
+            <li className={styles.listItem}>
+              <p className={styles.letter}>
+                {user.email?.charAt(0) ?? "Default"}
+              </p>
+            </li>
+            <li>
+              <p className={styles.text}>{user.email}’s Quest Log</p>
+            </li>
+          </ul>
         </div>
         <div className={styles.iconWrapper}>
           <ul className={styles.iconList}>
