@@ -16,6 +16,7 @@ import authSlice from "./auth/authSlice";
 const persistConfig = {
   key: "auth",
   storage,
+  // whitelist: ["refreshToken", "sid"],
 };
 
 const authReducer = persistReducer(persistConfig, authSlice);
