@@ -1,1 +1,0 @@
-import{j as e}from"./index-W5ls2knx.js";const t=()=>e.jsx("div",{children:e.jsx("h2",{style:{display:"flex",justifyContent:"center",alignItems:"center",height:"100vh"},children:"Main Page"})}),s=()=>e.jsx(t,{});export{s as default};
