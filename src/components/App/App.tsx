@@ -8,11 +8,11 @@ const AuthPage = lazy(() => import("../../pages/AuthPage"));
 const MainPage = lazy(() => import("../../pages/MainPage"));
 
 function App() {
-  const { dispatch, idUser } = useAuth();
+  const { dispatch } = useAuth();
 
   useEffect(() => {
-    dispatch(refresh({ sid: `${idUser}` }));
-  }, [dispatch, idUser]);
+    dispatch(refresh());
+  }, [dispatch]);
 
   return (
     <>
