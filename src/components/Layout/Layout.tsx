@@ -3,11 +3,17 @@ import { Outlet } from "react-router-dom";
 import { Header } from "..";
 import { useAuth } from "../../redux/auth/useAuth";
 
+import styles from "../../styles/container.module.css";
+import { containerStyles } from "../shared/containerStyles";
+
 export const Layout = () => {
   const { isAuth } = useAuth();
 
   return (
-    <>
+    <div
+      className={styles.container}
+      style={containerStyles.containerStyle(isAuth)}
+    >
       {isAuth && <Header />}
       <main>
         <Suspense fallback={"Loading..."}>
@@ -15,6 +21,6 @@ export const Layout = () => {
         </Suspense>
       </main>
       {/* <footer></footer> */}
-    </>
+    </div>
   );
 };

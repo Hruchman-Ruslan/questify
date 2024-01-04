@@ -1,0 +1,10 @@
+.cardWrapper {
+  width: 224px;
+  height: 208px;
+  flex-shrink: 0;
+
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 3px 4px 4px 0px rgba(21, 57, 90, 0.03),
+    -3px -4px 4px 0px rgba(21, 57, 90, 0.03);
+}
