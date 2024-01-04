@@ -9,6 +9,7 @@ interface IconProps {
   width?: number;
   height?: number;
   onClick?: () => void;
+  fill?: string;
 }
 
 export const Icon: FC<IconProps> = ({
@@ -16,6 +17,7 @@ export const Icon: FC<IconProps> = ({
   width = 30,
   height = 30,
   onClick,
+  fill = "#00d7ff",
 }) => {
   return (
     <svg
@@ -23,6 +25,7 @@ export const Icon: FC<IconProps> = ({
       width={width}
       height={height}
       onClick={onClick}
+      fill={fill}
     >
       <use xlinkHref={`${sprite}#icon-${idIcon}`}></use>
     </svg>

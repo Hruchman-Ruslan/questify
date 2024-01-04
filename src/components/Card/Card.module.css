@@ -1,10 +1,106 @@
 .cardWrapper {
+  position: relative;
+
   width: 224px;
   height: 208px;
-  flex-shrink: 0;
+
+  padding: 20px;
 
   border-radius: 10px;
   background: #fff;
   box-shadow: 3px 4px 4px 0px rgba(21, 57, 90, 0.03),
     -3px -4px 4px 0px rgba(21, 57, 90, 0.03);
+}
+
+.cardWrapperHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 50px;
+}
+
+.cardHeaderWrapperStatus {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cardHeaderStatus {
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+
+  background-color: #db0837;
+}
+
+.cardHeaderText {
+  color: #b9c3c8;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.28px;
+}
+
+.titleWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.titleBox {
+  margin-bottom: 12px;
+}
+
+.title {
+  color: #282828;
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.timeWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.time {
+  color: #b9c3c8;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.28px;
+}
+
+.categoryWrapper {
+  position: absolute;
+  left: 0;
+  bottom: 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 88px;
+  height: 25px;
+
+  border-radius: 0px 15px 15px 0px;
+  background: #d3f6ce;
+}
+
+.categoryText {
+  color: #282828;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.22px;
 }

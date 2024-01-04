@@ -15,7 +15,15 @@ export const Layout = () => {
       style={containerStyles.containerStyle(isAuth)}
     >
       {isAuth && <Header />}
-      <main>
+      <main
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+          backgroundColor: "#F2F3F7",
+        }}
+      >
         <Suspense fallback={"Loading..."}>
           <Outlet />
         </Suspense>
