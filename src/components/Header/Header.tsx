@@ -33,10 +33,11 @@ export const Header: FC = () => {
         <div className={styles.iconWrapper}>
           <ul className={styles.iconList}>
             <li>
-              <Icon idIcon="challenge" width={20} height={20} />
+              <Icon fill="#3E4E6C" idIcon="challenge" width={20} height={20} />
             </li>
             <li>
               <Icon
+                fill="#3E4E6C"
                 idIcon="logout"
                 onClick={() => {
                   dispatch(logout());

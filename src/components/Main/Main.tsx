@@ -1,16 +1,9 @@
+import { Card } from "../Card/Card";
+
 export const Main = () => {
   return (
     <div>
-      <h2
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100vh",
-        }}
-      >
-        Main Page
-      </h2>
+      <Card />
     </div>
   );
 };
