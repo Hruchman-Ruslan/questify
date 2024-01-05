@@ -1,0 +1,24 @@
+.button {
+  position: absolute;
+  bottom: 50px;
+  right: 300px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+
+  border-radius: 52px;
+  background: #ff851c;
+  border: transparent;
+
+  transition: box-shadow 0.3s ease;
+}
+
+.button:hover,
+.button:focus {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}

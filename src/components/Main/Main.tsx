@@ -1,9 +1,11 @@
 import { Card } from "../Card/Card";
+import { CreateCard } from "../CreateCard/CreateCard";
 
 export const Main = () => {
   return (
-    <div>
+    <>
       <Card />
-    </div>
+      <CreateCard />
+    </>
   );
 };
