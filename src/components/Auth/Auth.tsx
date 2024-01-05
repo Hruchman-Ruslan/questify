@@ -20,9 +20,6 @@ export const Auth = () => {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    console.log("email", email);
-    console.log("password", password);
-
     try {
       const registerResponse = await dispatch(register({ email, password }));
 
