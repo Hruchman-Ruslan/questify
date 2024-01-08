@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { login, logout, refresh, register } from "./authOperations";
 
-export interface AuthState {
+export interface Auth {
   userData: {
     email: string | null;
     password: string | null;
@@ -17,21 +17,7 @@ export interface AuthState {
   newAccessToken: string | null;
 }
 
-export interface AuthPayload {
-  userData: {
-    email: string;
-    password: string;
-  };
-  isAuth: boolean;
-  isLoggedIn: boolean;
-  isRefreshing: boolean;
-  accessToken: string | null;
-  refreshToken: string;
-  sid: string | null;
-  newSid: string | null;
-  newRefreshToken: string | null;
-  newAccessToken: string | null;
-}
+interface AuthState extends Auth {}
 
 const initialState: AuthState = {
   userData: { email: null, password: null },
@@ -52,13 +38,10 @@ const authSlice = createSlice({
   reducers: {},
   extraReducers: (builder) =>
     builder
-      .addCase(
-        register.fulfilled,
-        (state, action: PayloadAction<AuthPayload>) => {
-          state.userData = action.payload.userData;
-        }
-      )
-      .addCase(login.fulfilled, (state, action: PayloadAction<AuthPayload>) => {
+      .addCase(register.fulfilled, (state, action: PayloadAction<Auth>) => {
+        state.userData = action.payload.userData;
+      })
+      .addCase(login.fulfilled, (state, action: PayloadAction<Auth>) => {
         state.userData = action.payload.userData;
         state.isAuth = true;
         state.isLoggedIn = true;
@@ -77,16 +60,13 @@ const authSlice = createSlice({
       .addCase(refresh.pending, (state) => {
         state.isRefreshing = true;
       })
-      .addCase(
-        refresh.fulfilled,
-        (state, action: PayloadAction<AuthPayload>) => {
-          state.sid = action.payload.newSid;
-          state.refreshToken = action.payload.newRefreshToken;
-          state.accessToken = action.payload.newAccessToken;
-          state.isLoggedIn = true;
-          state.isRefreshing = false;
-        }
-      )
+      .addCase(refresh.fulfilled, (state, action: PayloadAction<Auth>) => {
+        state.sid = action.payload.newSid;
+        state.refreshToken = action.payload.newRefreshToken;
+        state.accessToken = action.payload.newAccessToken;
+        state.isLoggedIn = true;
+        state.isRefreshing = false;
+      })
       .addCase(refresh.rejected, (state) => {
         state.isRefreshing = false;
         state.refreshToken = null;
