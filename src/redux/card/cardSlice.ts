@@ -5,7 +5,7 @@ interface Card {
   title: string;
   difficulty: string;
   category: string;
-  date: Date;
+  date: string;
   time: string;
   type: string;
 }
@@ -19,7 +19,7 @@ const initialState: CardState = {
     title: "",
     difficulty: "",
     category: "",
-    date: new Date(),
+    date: "",
     time: "",
     type: "",
   },
