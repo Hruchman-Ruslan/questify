@@ -25,56 +25,62 @@ export const Select: FC = () => {
   };
 
   return (
-    <>
-      <div className={styles.selectMenu} onClick={toggleDropdown}>
-        <span
-          className={
-            styles[
-              `dropdownColor${
-                selectedColor.charAt(0).toUpperCase() + selectedColor.slice(1)
-              }`
-            ]
-          }
-        ></span>
-        <div className={styles.dropdownDefault}>{selected}</div>
-        {active ? (
-          <Icon idIcon="triangle-up" width={12} height={12} />
-        ) : (
-          <Icon idIcon="triangle-down" width={12} height={12} />
+    <div className={styles.wrapper}>
+      <div>
+        <div className={styles.selectMenu} onClick={toggleDropdown}>
+          <span
+            className={
+              styles[
+                `dropdownColor${
+                  selectedColor.charAt(0).toUpperCase() + selectedColor.slice(1)
+                }`
+              ]
+            }
+          ></span>
+          <div className={styles.dropdownDefault}>{selected}</div>
+          {active ? (
+            <Icon idIcon="triangle-up" width={12} height={12} />
+          ) : (
+            <Icon idIcon="triangle-down" width={12} height={12} />
+          )}
+        </div>
+
+        {active && (
+          <ul className={styles.dropdown}>
+            <li className={styles.dropdownItem}>
+              <span className={styles.dropdownColorBlue}></span>
+              <p
+                className={styles.dropdownText}
+                onClick={() => onClick("Easy", "blue")}
+              >
+                Easy
+              </p>
+            </li>
+            <li className={styles.dropdownItem}>
+              <span className={styles.dropdownColorGreen}></span>
+              <p
+                className={styles.dropdownText}
+                onClick={() => onClick("Normal", "green")}
+              >
+                Normal
+              </p>
+            </li>
+            <li className={styles.dropdownItem}>
+              <span className={styles.dropdownColorRed}></span>
+              <p
+                className={styles.dropdownText}
+                onClick={() => onClick("Hard", "red")}
+              >
+                Hard
+              </p>
+            </li>
+          </ul>
         )}
       </div>
 
-      {active && (
-        <ul className={styles.dropdown}>
-          <li className={styles.dropdownItem}>
-            <span className={styles.dropdownColorBlue}></span>
-            <p
-              className={styles.dropdownText}
-              onClick={() => onClick("Easy", "blue")}
-            >
-              Easy
-            </p>
-          </li>
-          <li className={styles.dropdownItem}>
-            <span className={styles.dropdownColorGreen}></span>
-            <p
-              className={styles.dropdownText}
-              onClick={() => onClick("Normal", "green")}
-            >
-              Normal
-            </p>
-          </li>
-          <li className={styles.dropdownItem}>
-            <span className={styles.dropdownColorRed}></span>
-            <p
-              className={styles.dropdownText}
-              onClick={() => onClick("Hard", "red")}
-            >
-              Hard
-            </p>
-          </li>
-        </ul>
-      )}
-    </>
+      <div>
+        <Icon idIcon="Star" width={14} height={14} fill="#B9C3C8" />
+      </div>
+    </div>
   );
 };
