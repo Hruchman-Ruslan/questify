@@ -1,0 +1,28 @@
+.wrapper {
+  text-align: center;
+}
+
+.title {
+  color: #b9c3c8;
+  text-align: center;
+  font-family: HelveticaNeueCyr;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.24px;
+  text-transform: uppercase;
+}
+
+.input {
+  width: 163px;
+  padding: 2px;
+
+  color: #00d7ff;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid;
+
+  padding-top: 8px;
+}
