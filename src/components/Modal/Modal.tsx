@@ -3,6 +3,7 @@ import { Select } from "../Select/Select";
 
 import styles from "../Card/Card.module.css";
 import { NewQuest } from "../NewQuest/NewQuest";
+import { Calendar } from "../Calendar/Calendar";
 
 export const Modal: FC = () => {
   return (
@@ -10,13 +11,14 @@ export const Modal: FC = () => {
       <div
         className={styles.cardWrapper}
         style={{
-          backgroundColor: "black",
+          backgroundColor: "#FFFFFF",
           display: "flex",
           flexDirection: "column",
         }}
       >
         <Select />
         <NewQuest />
+        <Calendar />
       </div>
     </>
   );
