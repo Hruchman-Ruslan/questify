@@ -4,25 +4,30 @@ import { Icon } from "../Icon/Icon";
 
 import styles from "./Category.module.css";
 
-type Color = "#FFE6D3" | "#CDF7FF" | "#FFF6C0" | "#F8D2FF";
+type Color = "#B9C3C8" | "#FFE6D3" | "#CDF7FF" | "#FFF6C0" | "#F8D2FF";
 
-type Value = "FAMILY" | "HEALTH" | "LEARNING" | "LEISURE";
+type Category = "STUFF" | "FAMILY" | "HEALTH" | "LEARNING" | "LEISURE";
 
-export const Category: FC = () => {
+interface CategoryProps {
+  onClickCategory: (category: Category, color: Color) => void;
+}
+
+export const Category: FC<CategoryProps> = ({ onClickCategory }) => {
   const [active, setActive] = useState<boolean>(false);
-  const [selected, setSelected] = useState<Value>("FAMILY");
-  const [selectedColor, setSelectedColor] = useState<Color>("#FFE6D3");
+  const [selected, setSelected] = useState<Category>("STUFF");
+  const [selectedColor, setSelectedColor] = useState<Color>("#B9C3C8");
 
   const toggleDropdown = () => {
     setActive((prevState) => !prevState);
   };
 
-  const onClick = (value: Value, color: Color) => {
-    setSelected(value);
+  const onClick = (category: Category, color: Color) => {
+    setSelected(category);
     setSelectedColor(color);
     setActive(false);
 
-    console.log(`${value} and ${color}`);
+    // console.log(`${category} and ${color}`);
+    onClickCategory(category, color);
   };
 
   return (
@@ -38,6 +43,14 @@ export const Category: FC = () => {
 
       {active && (
         <ul className={styles.dropdown}>
+          <li className={styles.dropdownItem}>
+            <p
+              className={styles.text}
+              onClick={() => onClick("STUFF", "#B9C3C8")}
+            >
+              STUFF
+            </p>
+          </li>
           <li className={styles.dropdownItem}>
             <p
               className={styles.text}
