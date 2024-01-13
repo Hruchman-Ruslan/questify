@@ -1,13 +1,18 @@
 import React, { FC, useState } from "react";
 import styles from "./NewQuest.module.css";
 
-export const NewQuest: FC = () => {
-  const [value, setValue] = useState<string>("");
+interface NewQuestProps {
+  onChangeQuest: (value: string) => void;
+}
+
+export const NewQuest: FC<NewQuestProps> = ({ onChangeQuest }) => {
+  const [title, setTitle] = useState<string>("");
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(e.target.value);
+    setTitle(e.target.value);
 
-    console.log(value);
+    // console.log(title);
+    onChangeQuest(title);
   };
 
   return (
@@ -17,7 +22,7 @@ export const NewQuest: FC = () => {
         <input
           type="text"
           className={styles.input}
-          value={value}
+          value={title}
           onChange={onChange}
         />
       </label>

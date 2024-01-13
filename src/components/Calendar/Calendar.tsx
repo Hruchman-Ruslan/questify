@@ -3,15 +3,29 @@ import { Icon } from "../Icon/Icon";
 
 import styles from "./Calendar.module.css";
 
-export const Calendar: FC = () => {
+interface CalendarProps {
+  onClickCalendar: (value: string) => void;
+  onClickTime: (value: string) => void;
+}
+
+export const Calendar: FC<CalendarProps> = ({
+  onClickCalendar,
+  onClickTime,
+}) => {
   const [date, setDate] = useState(new Date());
   const [showInput, setShowInput] = useState(false);
+  const [time, setTime] = useState("");
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedDate = new Date(e.target.value);
     setDate(selectedDate);
-    setShowInput(false);
-    console.log(selectedDate);
+    onClickCalendar(selectedDate.toISOString().split("T")[0]);
+  };
+
+  const onTimeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const selectedTime = e.target.value;
+    setTime(selectedTime);
+    onClickTime(selectedTime);
   };
 
   const toggleInput = () => {
@@ -28,13 +42,29 @@ export const Calendar: FC = () => {
       <p className={styles.text}>{getDayOfWeek()}</p>
       <Icon idIcon="calendar" width={14} height={14} onClick={toggleInput} />
       {showInput && (
-        <label>
-          <input
-            type="date"
-            value={date.toISOString().split("T")[0]}
-            onChange={onChange}
-          />
-        </label>
+        <div className={styles.wrapperDate}>
+          <label>
+            <input
+              className={styles.inputTime}
+              type="date"
+              value={date.toISOString().split("T")[0]}
+              onChange={onDateChange}
+            />
+          </label>
+
+          <div className={styles.wrapperTime}>
+            <label>
+              <input
+                className={styles.inputTime}
+                type="time"
+                value={time}
+                onChange={onTimeChange}
+              />
+            </label>
+
+            <Icon idIcon="done" width={14} height={14} onClick={toggleInput} />
+          </div>
+        </div>
       )}
     </div>
   );

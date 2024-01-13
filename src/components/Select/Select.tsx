@@ -7,7 +7,11 @@ type Color = "blue" | "green" | "red";
 
 type Value = "Normal" | "Easy" | "Hard";
 
-export const Select: FC = () => {
+interface SelectProps {
+  onClickSelect: (value: Value, color: Color) => void;
+}
+
+export const Select: FC<SelectProps> = ({ onClickSelect }) => {
   const [active, setActive] = useState<boolean>(false);
   const [selected, setSelected] = useState<Value>("Normal");
   const [selectedColor, setSelectedColor] = useState<Color>("green");
@@ -16,12 +20,13 @@ export const Select: FC = () => {
     setActive((prevState) => !prevState);
   };
 
-  const onClick = (value: Value, color: Color) => {
-    setSelected(value);
+  const onClick = (difficulty: Value, color: Color) => {
+    setSelected(difficulty);
     setSelectedColor(color);
     setActive(false);
 
-    console.log(`${value} and ${color}`);
+    // console.log(`${difficulty} and ${color}`);
+    onClickSelect(difficulty, color);
   };
 
   return (

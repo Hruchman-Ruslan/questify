@@ -16,3 +16,32 @@
   line-height: normal;
   letter-spacing: 0.28px;
 }
+
+.wrapperDate {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.wrapperTime {
+  display: flex;
+  align-items: center;
+  justify-content: baseline;
+  gap: 5px;
+}
+
+.inputTime {
+  font-family: HelveticaNeueCyr;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.24px;
+  text-transform: uppercase;
+
+  color: #00d7ff;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid;
+}
