@@ -1,0 +1,43 @@
+.modalWrapper {
+  position: relative;
+
+  width: 224px;
+  height: 208px;
+
+  padding: 10px;
+
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 3px 4px 4px 0px rgba(21, 57, 90, 0.03),
+    -3px -4px 4px 0px rgba(21, 57, 90, 0.03);
+}
+
+.decor {
+  color: #b9c3c8;
+}
+
+.wrapperSubmit {
+  position: absolute;
+  bottom: 20px;
+  right: 10px;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: baseline;
+  gap: 9px;
+}
+
+.submit {
+  color: #00d7ff;
+  text-align: right;
+  font-family: HelveticaNeueCyr;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.28px;
+  padding: 0;
+
+  background-color: transparent;
+  border: none;
+}
